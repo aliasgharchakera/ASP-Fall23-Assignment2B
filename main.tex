@@ -73,19 +73,25 @@
     of accidents between 8 AM and 11 AM?
 
     \begin{solution}
+        Between 8 AM and 9 AM, the rate of accidents is 5 accidents per hour. Between 9 AM and 11 AM, the rate of
+        accidents is 3 accidents per hour. Therefore,
         \begin{align*}
-            \lambda_1 & = 5 \text{ accidents per hour} \\
-            \lambda_2 & = 3 \text{ accidents per hour} \\
+            X_1       & = \text{ number of accidents between 8 AM and 9 AM}   \\
+            X_2       & = \text{ number of accidents between 9 AM and 10 AM}  \\
+            X_3       & = \text{ number of accidents between 10 AM and 11 AM} \\
+            \lambda_1 & = 5 \text{ accidents per hour}                        \\
+            \lambda_2 & = 3 \text{ accidents per hour}                        \\
+            \lambda_3 & = 3 \text{ accidents per hour}                        \\
         \end{align*}
-        The rate of accidents between 8 AM and 11 AM is the sum of the rates of accidents between 8 AM and 9 AM and
-        between 9 AM and 11 AM. Therefore,
+        The rate of accidents between 8 AM and 11 AM is the sum of the rates of accidents between 8 AM and 9 AM, between 9 AM and 10 AM, and
+        between 10 AM and 11 AM. Therefore,
         \begin{align*}
-            \lambda & = \lambda_1 + \lambda_2 = 5 + 3 = 8 \text{ accidents per hour} \\
+            \lambda & = \lambda_1 + \lambda_2 \lambda_3 = 5 + 3 + 3 = 11 \text{ accidents per hour} \\
             t       & = 3 \text{ hours}                                              \\
             X       & = \text{ number of accidents in } t \text{ hours}              \\
             \text{The PMF for } X \text{ is given by:}                               \\
             P(X = k) = \begin{cases}
-                           \dfrac{e^{-8} 8^k}{k!} & \text{if } k \in \mathbb{N} \\
+                           \dfrac{e^{-11} 11^k}{k!} & \text{if } k \in \mathbb{N} \\
                            0                      & \text{otherwise}
                        \end{cases}
         \end{align*}
