@@ -1,0 +1,96 @@
+\documentclass[answers]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{venndiagram}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% Header and footer.
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\runningheader{MATH 402 Applied Stochastic Processes}{Assignment 2}{Fall 2023}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+\firstpageheader{}{}{}
+
+\boxedpoints
+\printanswers
+
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+\newcommand\union\cup
+\newcommand\inter\cap
+\newcommand\ul\underline
+\newcommand\ol\overline
+
+\title{Assignment 2\\ MATH 402 Applied Stochastic Processes\\ Habib University -- Fall 2023}
+\author{Ali Asghar Yousuf \\ ay06993}  % replace with your ID, e.g. oy02945
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+    \question \textbf{9.34} A server handles queries that arrive according to a Poisson process with a rate of 10 queries
+    per minute.What is the probability that no queries go unanswered if the server is unavailable
+    for 20 seconds?
+    \begin{solution}
+        \begin{align*}
+            \lambda  & = 10 \text{ queries per minute}                                                             \\
+            \mu      & = 60 \text{ seconds per minute}                                                             \\
+            \lambda' & = \dfrac{\lambda}{\mu} = \dfrac{10}{60} = \dfrac{1}{6} \text{ queries per second}           \\
+            t        & = 20 \text{ seconds}                                                                        \\
+            P_0(t)   & = e^{-\lambda' t} = e^{-\dfrac{1}{6} \times 20} = e^{-\dfrac{10}{3}} = 0.049787068367863944
+        \end{align*}
+    \end{solution}
+
+    \question \textbf{9.35} Customers deposit \$1 in a vending machine according to a Poisson process with rate $\lambda$.
+    The machine issues an item with probability $p$. Find the PMF for the number of items dispensed in time $t$.
+
+    \begin{solution}
+        \begin{align*}
+            \lambda  & = \text{ rate of deposit}                       \\
+            p        & = \text{ probability of issuing an item}        \\
+            t        & = \text{ time}                                  \\
+            X        & = \text{ number of items dispensed in time } t  \\
+            \text{The PMF for } X \text{ is given by:}                 \\
+            P(X = k) & = \dfrac{\lambda^k e^{-\lambda}}{k!} \times p^k \\
+        \end{align*}
+        For example, if $p = 0.5$ and $\lambda = 2$, then the probability of dispensing $k$ items in time $t$ is given by:
+        \begin{align*}
+            P(X = 0) & = \dfrac{2^0 e^{-2}}{0!} \times 0.5^0 = 0.1353352832366127 \\
+            P(X = 1) & = \dfrac{2^1 e^{-2}}{1!} \times 0.5^1 = 0.2706705664732254 \\
+            P(X = 2) & = \dfrac{2^2 e^{-2}}{2!} \times 0.5^2 = 0.2706705664732254 \\
+            \vdots
+        \end{align*}
+    \end{solution}
+
+    \question \textbf{6.8} During rush hour, from 8 AM to 9 AM, traffic accidents occur according to a Poisson process
+    with a rate of 5 accidents per hour. Between 9 AM and 11 AM, they occur as an independent
+    Poisson process with a rate of 3 accidents per hour. What is the PMF of the total number
+    of accidents between 8 AM and 11 AM?
+
+    \begin{solution}
+        \begin{align*}
+            \lambda_1 & = 5 \text{ accidents per hour} \\
+            \lambda_2 & = 3 \text{ accidents per hour} \\
+        \end{align*}
+        The rate of accidents between 8 AM and 11 AM is the sum of the rates of accidents between 8 AM and 9 AM and
+        between 9 AM and 11 AM. Therefore,
+        \begin{align*}
+            \lambda & = \lambda_1 + \lambda_2 = 5 + 3 = 8 \text{ accidents per hour} \\
+            t       & = 3 \text{ hours}                                              \\
+            X       & = \text{ number of accidents in } t \text{ hours}              \\
+            \text{The PMF for } X \text{ is given by:}                               \\
+            P(X = k) = \begin{cases}
+                           \dfrac{e^{-8} 8^k}{k!} & \text{if } k \in \mathbb{N} \\
+                           0                      & \text{otherwise}
+                       \end{cases}
+        \end{align*}
+    \end{solution}
+
+\end{questions}
+
+\end{document}
